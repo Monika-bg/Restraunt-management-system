@@ -6,6 +6,7 @@
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  color:white;/*about is also showing in white*/
 }
 ::-webkit-scrollbar{
   display: none;
@@ -24,7 +25,8 @@ nav {
   align-items: center;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
+  
 }
 nav::after {
   content: "";
@@ -55,14 +57,14 @@ nav .navLinks .links {
 }
 nav .navLinks .links a {
   text-decoration: none;
-  color: #555;
+  color: white;
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 1.4px;
 }
 nav .navLinks .links a {
   text-decoration: none;
-  color: #555;
+  color: white;
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 1.4px;
@@ -76,7 +78,7 @@ nav .navLinks .links a::before {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: #000;
+  background-color: white;
   transition: width 0.3s ease;
 }
 
@@ -87,19 +89,19 @@ nav .navLinks .links a:focus::before {
 
 nav .navLinks .links a:hover,
 nav .navLinks .links a:focus {
-  color: #0c0b0b; /* Darken color on hover or focus */
+  color: white; /* Darken color on hover or focus */
 }
 
 nav .navLinks .links a:hover {
-  color: #222;
+  color:white;
   transition: 0.3s;
   cursor: pointer;
 }
 nav .menuBtn {
   padding: 8px 20px;
   color: black;
-  background: transparent;
-  border: 1px solid #333;
+  background: white;
+  border: 1px solid black;
   border-radius: 20px;
   font-size: 16px;
 }
@@ -191,7 +193,7 @@ nav svg {
   cursor: pointer;
   width: 60px;
   height: 60px;
-  border: 2px solid #0d0d0e; /* Dark blue color */
+  border: 2px solid white; /* Dark blue color */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -230,7 +232,7 @@ nav svg {
   min-height: 80vh;
   justify-content: space-between;
   align-items: center;
-  background: url(/background.svg);
+  background: url(/bbbb.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
