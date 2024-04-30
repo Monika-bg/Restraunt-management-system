@@ -13,13 +13,10 @@ const About = () => {
               <p>The only thing we're serious about is food.</p>
             </div>
             <p className="mid">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Provident possimus optio adipisci dolores impedit illum iusto
-              perferendis, laudantium quod accusamus consequuntur consectetur,
-              tempore nulla error iure reiciendis dolorem assumenda.
-              Necessitatibus fugit asperiores totam rem esse exercitationem
-              iusto ipsum qui dolore ex, accusantium repellat mollitia
-              repellendus.
+            "Palate Pleasers" is a restaurant focused on delivering a delightful culinary experience, 
+            tantalizing the taste buds of its patrons with a diverse menu that caters to various palates
+             and preferences.From savory dishes to delectable desserts, Palate Pleasers aims to satisfy 
+             every craving and create memorable dining moments for its customers.
             </p>
             <Link to={"/"}>
               Explore Menu{" "}
