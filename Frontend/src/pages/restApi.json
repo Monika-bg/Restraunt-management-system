@@ -193,24 +193,11 @@
                   "price" : 60,
                   "category" : "Breakfast"
                 },
-                {
-                    "id": "2",
-                    "name" : "Idli",
-                    "image": "./idli.jpeg",
-                    "price" : 40,
-                    "category" : "Breakfast"
-                  },
-                  {
-                    "id": "3",
-                    "name" : "Poori",
-                    "image": "./poori.jpeg",
-                    "price" : 60,
-                    "category" : "Breakfast"
-                  },
+                
                   {
                     "id": "4",
                     "name" : "Bisibele Bath",
-                    "image": "./Bisibele bath.jpeg",
+                    "image": "./bb.jpg",
                     "price" : 60,
                     "category" : "Breakfast"
                   },
@@ -218,6 +205,20 @@
                     "id": "5",
                     "name" : "palav",
                     "image": "./palav.jpeg",
+                    "price" : 40,
+                    "category" : "Breakfast"
+                  },
+                  {
+                    "id": "3",
+                    "name" :"Poori",
+                    "image": "./p.jpeg",
+                    "price" : 60,
+                    "category" : "Breakfast"
+                  },
+                  {
+                    "id": "4",
+                    "name" : "Idli",
+                    "image": "./idli3.jpeg",
                     "price" : 40,
                     "category" : "Breakfast"
                   }

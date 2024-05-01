@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { data } from "../pages/restApi.json";
 import { Link } from "react-scroll";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { Link as RouterLink } from "react-router-dom"; // Import Link from React Router
+import { Link as RouterLink } from "react-router-dom";
+import QRCodePage from "./QrCodeModal";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
+
   return (
     <>
       <nav>
@@ -24,10 +26,11 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          {/* Modify the button to use RouterLink */}
-          <RouterLink to="/menu" className="menuBtn">OUR MENU</RouterLink>
+          {/* Updated RouterLink to point to the login page */}
+          <RouterLink to="/login" className="menuBtn">OUR MENU</RouterLink>
+          <QRCodePage/>
         </div>
-        <div className="hamburger" onClick={()=> setShow(!show)}>
+        <div className="hamburger" onClick={() => setShow(!show)}>
           <GiHamburgerMenu/>
         </div>
       </nav>

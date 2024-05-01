@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./NavBar";
 
+
 const HeroSection = () => {
   const [showArrow, setShowArrow] = useState(true);
 
@@ -33,6 +34,7 @@ const HeroSection = () => {
   return (
     <section className="heroSection" id="heroSection">
       <Navbar />
+      
       <div className="container">
         <div className="banner">
           <div className="largeBox">
