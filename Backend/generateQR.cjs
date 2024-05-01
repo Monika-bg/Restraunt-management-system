@@ -1,5 +1,8 @@
 const QRCode = require('qrcode');
 const fs = require('fs');
+const ReactDOMServer = require('react-dom/server');
+const React = require('react');
+const MenuPage = require('./Frontend/src/components/MenuPage.jsx'); // Adjust import path
 
 const generateQRCode = (data, filePath) => {
   QRCode.toFile(filePath, data, {
@@ -8,28 +11,18 @@ const generateQRCode = (data, filePath) => {
   }, (err) => {
     if (err) throw err;
     console.log('QR Code generated successfully!');
+    // After generating QR code, display the MenuPage component
+    displayMenuPage();
   });
 };
 
-const menuData = {
-  breakfast: [
-    { name: 'Pancakes', price: '$5.99' },
-    { name: 'Eggs Benedict', price: '$7.99' },
-    // Add more breakfast items as needed
-  ],
-  lunch: [
-    { name: 'Caesar Salad', price: '$8.99' },
-    { name: 'Cheeseburger', price: '$9.99' },
-    // Add more lunch items as needed
-  ],
-  dinner: [
-    { name: 'Grilled Salmon', price: '$15.99' },
-    { name: 'Filet Mignon', price: '$24.99' },
-    // Add more dinner items as needed
-  ]
+const displayMenuPage = () => {
+  // Render the MenuPage component
+  const menuPageHtml = ReactDOMServer.renderToString(<MenuPage />);
+  console.log(menuPageHtml);
+  // You can use the generated HTML as needed
 };
 
-const menuDataString = JSON.stringify(menuData);
 const filePath = "menu_qr_code.png";
 
-generateQRCode(menuDataString, filePath);
+generateQRCode("", filePath); // Passing empty data
