@@ -1,4 +1,3 @@
-// Import required modules
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -8,6 +7,7 @@ import { errorMiddleware } from "./error/error.js";
 import { reservationRouter } from './routes/reservationRoute.js';
 import { loginRouter } from './routes/loginRoute.js'; // Import the login route
 import { signupRouter } from './routes/signupRoute.js'; // Import the signup route
+import paymentRouter from './routes/paymentRoutes.js'; // Import the default export
 
 const app = express();
 dotenv.config({ path: "./config/config.env" });
@@ -28,6 +28,7 @@ app.use(morgan("dev")); // Log requests in dev format
 app.use("/api/v1/reservation", reservationRouter);
 app.use("/api/v1/login", loginRouter); // Use the login route
 app.use("/api/v1/signup", signupRouter); // Use the signup route
+app.use("/api", paymentRouter); // Use the payment route
 
 // Connect to MongoDB
 dbConnection();

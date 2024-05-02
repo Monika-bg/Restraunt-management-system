@@ -14,7 +14,7 @@ function Menu() {
         <p>Menu Item 2 Description</p>
       </div>
       {/* Add more images and descriptions for other menu items */}
-      <Link to="/">Back to homepage</Link>
+      <Link to="/" className="back-to-homepage">Back to homepage</Link>
     </div>
   );
 }

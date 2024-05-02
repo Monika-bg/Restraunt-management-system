@@ -1,33 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, SignUpContainer, SignInContainer, Form, Title, Input, Button, GhostButton, Anchor, OverlayContainer, Overlay, LeftOverlayPanel, RightOverlayPanel, Paragraph } from './Components';
+import axios from "axios";
+import { Container, SignUpContainer, SignInContainer, Form, Title, Input, Button, Anchor, OverlayContainer, Overlay, LeftOverlayPanel, RightOverlayPanel, Paragraph } from './Components';
 import './menu.css';
 
 const Login = () => {
-    const [signIn, toggle] = React.useState(true);
+    const [signIn, setSignIn] = useState(true);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [error, setError] = useState("");
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:4000/api/v1/login", { email, password });
+            console.log(response.data);
+            // Handle successful login
+        } catch (error) {
+            setError(error.response.data.message);
+        }
+    };
+
+    const handleSignup = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:4000/api/v1/signup", { name, email, password });
+            console.log(response.data);
+            // Handle successful signup
+        } catch (error) {
+            setError(error.response.data.message);
+        }
+    };
 
     return (
         <Container>
             <SignUpContainer signinIn={signIn}>
                 <Form>
                     <Title>Create Account</Title>
-                    <Input type='text' placeholder='Name' />
-                    <Input type='email' placeholder='Email' />
-                    <Input type='password' placeholder='Password' />
-                    <Button>Sign Up</Button>
+                    <Input type='text' placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+                    <Input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Button onClick={handleSignup}>Sign Up</Button>
                 </Form>
             </SignUpContainer>
 
             <SignInContainer signinIn={signIn}>
                 <Form>
                     <Title>Sign in</Title>
-                    <Input type='email' placeholder='Email' />
-                    <Input type='password' placeholder='Password' />
+                    <Input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                     <Anchor href='#'>Forgot your password?</Anchor>
-                    {/* Wrap the Sign In button with a Link component */}
-                    <Link to="/menu">
-                        <Button>Sign In</Button>
-                    </Link>
+                    <Button onClick={handleLogin}>Sign In</Button>
                 </Form>
             </SignInContainer>
 
@@ -38,21 +62,18 @@ const Login = () => {
                         <Paragraph>
                             PLEASE LOGIN TO VIEW OUR MENU
                         </Paragraph>
-                        <GhostButton onClick={() => toggle(true)}>
-                            Sign In
-                        </GhostButton>
+                        <Button onClick={() => setSignIn(true)}>Sign In</Button>
                     </LeftOverlayPanel>
                     <RightOverlayPanel signinIn={signIn}>
-                        <Title>Hello,Customer!</Title>
+                        <Title>Hello, Customer!</Title>
                         <Paragraph>
                             NEW USER? PLEASE SIGNUP TO VIEW OUR MENU
                         </Paragraph>
-                        <GhostButton onClick={() => toggle(false)}>
-                            Sign Up
-                        </GhostButton>
+                        <Button onClick={() => setSignIn(false)}>Sign Up</Button>
                     </RightOverlayPanel>
                 </Overlay>
             </OverlayContainer>
+            {error && <p>{error}</p>}
         </Container>
     );
 }
