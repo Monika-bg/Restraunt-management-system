@@ -20,8 +20,8 @@ const About = () => {
             </p>
             <Link to={"/"}>
               {" "}
-              <span>
-                <HiOutlineArrowRight />
+              <span>Your smile is the flavour my palate craves!
+               
               </span>
             </Link>
           </div>

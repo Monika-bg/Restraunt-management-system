@@ -42,6 +42,7 @@ const HeroSection = () => {
           </div>
           <div className="combined_boxes">
             <div className="imageBox">
+              <img src="./hero1.png" alt="hero" />
             </div>
             <div className="textAndLogo">
               <div className="textWithSvg">
@@ -55,8 +56,9 @@ const HeroSection = () => {
         </div>
         <div className="banner">
           <div className="imageBox">
+            <img src="hero2.png" alt="hero" />
           </div>
-          <h1 className="title dishes_title" style={{ marginLeft: "30px" }}>Cuisine</h1>
+          <h6 className="title dishes_title">Curiosities</h6>
         </div>
       </div>
       {/* Add scrolling arrow button */}
