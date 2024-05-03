@@ -8,7 +8,7 @@ import NotFound from './pages/NotFound';
 import MenuPage from './components/MenuPage';
 import Login from './components/Login';
 import QRCodeModal from './components/QrCodeModal';
-import DisplayMenu from './components/DisplayMenu'; // Import the DisplayMenu component
+import DisplayMenu from './components/DisplayMenu'; 
 
 const App = () => {
   return (
