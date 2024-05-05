@@ -1,16 +1,17 @@
-import React from 'react';
-import Cartrun from './Cartrun';
-import { CartProvider } from 'react-use-cart';
+import React from "react";
+import Navbarr from "./Navbarr";
+import CategoryMenu from "./CategoryMenu";
+import FoodItems from "./FoodItem";
+import Cart from "./Cart";
+const Home = () => {
+  return (
+    <>
+      <Navbarr />
+      <CategoryMenu />
+      <FoodItems />
+      <Cart />  
+    </>
+  );
+};
 
-
-function MenuPage(){
-    return(
-        <>
-        <CartProvider>
-        <Cartrun/>
-       
-        </CartProvider>
-        </>
-    )
-}
-export default MenuPage;
+export default Home;

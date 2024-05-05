@@ -161,12 +161,12 @@
             },
             
             {
-                "id": 5,
+                "id": 4,
                 "title": "RESERVATION",
                 "link": "reservation"
             },
             {
-                "id":6,
+                "id":5,
                 "title":"VIEW MENU",
                 "link":"DisplayMenu"
             }
