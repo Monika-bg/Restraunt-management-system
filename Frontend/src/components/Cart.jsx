@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
-import ItemCard from "./ItemCard";
+
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

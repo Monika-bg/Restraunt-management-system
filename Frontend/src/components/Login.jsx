@@ -63,7 +63,7 @@ const Login = () => {
                     <Title>Sign in</Title>
                     <Input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                     <Input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <Anchor href='#'>Forgot your password?</Anchor>
+                    <Anchor href='/Forgot-password'>Forgot your password?</Anchor>
                     <Button onClick={handleLogin}>Sign In</Button>
                 </Form>
             </SignInContainer>
