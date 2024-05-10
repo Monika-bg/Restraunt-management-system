@@ -1,8 +1,17 @@
 import styled from 'styled-components';
+import Backgroundlogin from './Backgroundlogin.jpeg'; 
+
+const Wrapper = styled.div`
+    /* Add wrapper styles here */
+    background-image: url('your-background-image-url');
+    background-size: cover;
+    background-position: center;
+`;
 
 export const Container = styled.div`
 justify-content: center;
 align-items : center;
+background-image: url(${Backgroundlogin});
 background-color: #fff;
 border-radius: 10px;
 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -25,7 +34,7 @@ export const SignUpContainer = styled.div`
  width: 50%;
  opacity: 0;
  z-index: 1;
- ${props => props.signinIn !== true ? `
+ ${props => props.signIn !== true ? `
    transform: translateX(100%);
    opacity: 1;
    z-index: 5;
@@ -59,6 +68,7 @@ text-align: center;
 export const Title = styled.h1`
 font-weight: bold;
 margin: 0;
+font-size: 30px;
 `;
 
 export const Input = styled.input`

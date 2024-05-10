@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import { Container, SignUpContainer, SignInContainer, Form, Title, Input, Button, Anchor, OverlayContainer, Overlay, LeftOverlayPanel, RightOverlayPanel, Paragraph } from './Components';
-import './menu.css';
+import { Container, SignUpContainer, SignInContainer, Form, Title, Input, Anchor, OverlayContainer, Overlay, LeftOverlayPanel, RightOverlayPanel, Paragraph, GhostButton ,Button, } from './Components';
 import { toast } from 'react-hot-toast'; // Import toast from react-hot-toast
+
+const Wrapper = styled.div`
+    /* Add wrapper styles here */
+    background-image: url('Backgroundlogin');
+    background-size: cover;
+    background-position: center;
+`;
 
 const Login = () => {
     const [signIn, setSignIn] = useState(true);
@@ -47,6 +54,7 @@ const Login = () => {
     };
 
     return (
+        <Wrapper>
         <Container>
             <SignUpContainer signinIn={signIn}>
                 <Form>
@@ -63,7 +71,7 @@ const Login = () => {
                     <Title>Sign in</Title>
                     <Input type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                     <Input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <Anchor href='/Forgot-password'>Forgot your password?</Anchor>
+                    <Anchor href='/forgot-password'>Forgot your password?</Anchor>
                     <Button onClick={handleLogin}>Sign In</Button>
                 </Form>
             </SignInContainer>
@@ -75,18 +83,19 @@ const Login = () => {
                         <Paragraph>
                             PLEASE LOGIN TO VIEW OUR MENU
                         </Paragraph>
-                        <Button onClick={() => setSignIn(true)}>Sign In</Button>
+                        <GhostButton onClick={() => setSignIn(true)}>Sign In</GhostButton>
                     </LeftOverlayPanel>
                     <RightOverlayPanel signinIn={signIn}>
                         <Title>Hello, Customer!</Title>
                         <Paragraph>
                             NEW USER? PLEASE SIGNUP TO VIEW OUR MENU
                         </Paragraph>
-                        <Button onClick={() => setSignIn(false)}>Sign Up</Button>
+                        <GhostButton onClick={() => setSignIn(false)}>Sign Up</GhostButton>
                     </RightOverlayPanel>
                 </Overlay>
             </OverlayContainer>
         </Container>
+        </Wrapper>
     );
 }
 
