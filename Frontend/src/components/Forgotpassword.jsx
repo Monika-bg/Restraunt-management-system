@@ -1,5 +1,3 @@
-// ForgotPassword.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Form, Title, Input, Button } from './Components'; // Import necessary components
@@ -8,6 +6,7 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State to control the display of the success popup
 
     const handleResetPassword = async (e) => {
         e.preventDefault();
@@ -22,8 +21,9 @@ const ForgotPassword = () => {
         }
         try {
             // Send request to server to reset password
-            const response = await axios.post('http://localhost:4000/api/v1/reset-password', { email, newPassword });
+            const response = await axios.post('http://localhost:4000/api/v1/reset-password/send', { email, newPassword });
             // Handle success
+            setShowSuccessPopup(true); // Display success popup
         } catch (error) {
             // Handle error
         }
@@ -40,6 +40,13 @@ const ForgotPassword = () => {
                 <br></br>
                 <Button onClick={handleResetPassword}>Reset Password</Button>
             </Form>
+            {/* Success popup */}
+            {showSuccessPopup && (
+                <div className="success-popup">
+                    <p>Password reset successful!</p>
+                    {/* Add a button or link to close the popup if needed */}
+                </div>
+            )}
         </Container>
     );
 }

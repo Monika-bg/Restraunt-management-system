@@ -1,17 +1,10 @@
 import styled from 'styled-components';
-import Backgroundlogin from './Backgroundlogin.jpeg'; 
 
-const Wrapper = styled.div`
-    /* Add wrapper styles here */
-    background-image: url('your-background-image-url');
-    background-size: cover;
-    background-position: center;
-`;
 
 export const Container = styled.div`
 justify-content: center;
 align-items : center;
-background-image: url(${Backgroundlogin});
+
 background-color: #fff;
 border-radius: 10px;
 box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
