@@ -1,9 +1,11 @@
+
+// passwordResetRoute.js
+
 import express from 'express';
-import resetPassword from '../controller/passwordResetController.js';
+import { forgotPassword } from '../controller/passwordResetController.js'; // Adjust the path as per your project structure
 
 const router = express.Router();
 
-// Route to handle resetting password
-router.post('/send', resetPassword);
+router.post('/send', forgotPassword);
 
 export default router;

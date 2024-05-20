@@ -1,7 +1,6 @@
-import bcrypt from 'bcrypt';
-import { User } from '../models/Usermodel.js'; // Adjust the path based on your project structure
+import { User } from '../models/Usermodel.js';
 
-const resetPassword = async (req, res) => {
+export const forgotPassword = async (req, res) => {
     try {
         const { email, newPassword } = req.body;
 
@@ -12,11 +11,8 @@ const resetPassword = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        // Hash the new password
-        const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-        // Update user's password in the database
-        user.password = hashedPassword;
+        // Update user's password in the database without hashing
+        user.password = newPassword;
         await user.save();
 
         // Respond with success message
@@ -26,5 +22,3 @@ const resetPassword = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-
-export default resetPassword;
