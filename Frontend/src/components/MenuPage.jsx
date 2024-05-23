@@ -10,6 +10,9 @@ const Home = () => {
       <CategoryMenu />
       <FoodItems />
       <Cart />  
+      <script>
+        
+      </script>
     </>
   );
 };
