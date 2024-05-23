@@ -23,20 +23,20 @@
         "dishes": [
             {
                 "id": 1,
-                "image": "./dinner1.jpeg",
-                "title": "ROASTED LAMB RUMP",
+                "image": "./pasta.avif",
+                "title": "PASTA",
                 "category": "Dinner"
             },
             {
                 "id": 2,
-                "image": "./dinner2.png",
-                "title": "CITRUS CURED SALMON",
-                "category": "Dinner"
+                "image": "./pizza.avif",
+                "title": "PIZZA",
+                "category": "BRUNCH"
             },
             {
                 "id": 3,
-                "image": "./breakfast1.png",
-                "title": "PAN SEARED SEA BASS",
+                "image": "./taco.avif",
+                "title": "TACO",
                 "category": "Breakfast"
             },
             {
@@ -48,25 +48,25 @@
             {
                 "id": 5,
                 "image": "./lunch1.png",
-                "title": "BEEF BURGER MEAL",
+                "title": "CHICKEN BURGER MEAL",
                 "category": "Lunch"
             },
             {
                 "id": 6,
-                "image": "./dinner4.png",
-                "title": "MUSSELS SOUP",
-                "category": "Dinner"
+                "image": "./milkshake.jpg",
+                "title": " MILKSHAKE",
+                "category": "REFRESHEMENT"
             },
             {
                 "id": 7,
-                "image": "./dinner5.png",
-                "title": "ITALIAN SPAGHETTI",
-                "category": "Dinner"
+                "image": "./fries.jpg",
+                "title": "FRIES",
+                "category": "APETIZER"
             },
             {
                 "id": 8,
-                "image": "./dinner6.png",
-                "title": "GRILLED FISH",
+                "image": "./panner.webp",
+                "title": "PANNER BARBEQUE",
                 "category": "Dinner"
             }
             

@@ -58,7 +58,7 @@ const HeroSection = () => {
           <div className="imageBox">
             <img src="hero2.png" alt="hero" />
           </div>
-          <h6 className="title dishes_title">Curiosities</h6>
+          <h6 className="title dishes_title">Cuisine</h6>
         </div>
       </div>
       {/* Add scrolling arrow button */}

@@ -1,7 +1,9 @@
+// Usermodel.js
+
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import crypto from "crypto";
 
-// Define the user schema
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -15,10 +17,24 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
+  isVerified: {
+    type: Boolean,
+    default: false
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
+  twoFactorAuth: {
+    type: Boolean,
+    default: false
   }
 });
 
-// Hash the password before saving the user
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     return next();
@@ -33,7 +49,6 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-// Compare passwords for authentication
 userSchema.methods.comparePassword = async function (password) {
   try {
     return await bcrypt.compare(password, this.password);
@@ -42,7 +57,47 @@ userSchema.methods.comparePassword = async function (password) {
   }
 };
 
-// Create the User model
+userSchema.methods.generateResetToken = async function() {
+  try {
+    const resetToken = crypto.randomBytes(20).toString('hex');
+    this.resetPasswordToken = resetToken;
+    this.resetPasswordExpires = Date.now() + 3600000; // Token expires in 1 hour
+    await this.save();
+    return resetToken;
+  } catch (error) {
+    throw error;
+  }
+};
+
+userSchema.statics.findByResetToken = async function(token) {
+  try {
+    return await this.findOne({
+      resetPasswordToken: token,
+      resetPasswordExpires: { $gt: Date.now() } // Token should not be expired
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+userSchema.statics.findByEmail = async function(email) {
+  try {
+    return await this.findOne({ email });
+  } catch (error) {
+    throw error;
+  }
+};
+
+userSchema.statics.signup = async function(name, email, password) {
+  try {
+    const user = new this({ name, email, password });
+    await user.save();
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const User = mongoose.model("User", userSchema);
 
 export { User };

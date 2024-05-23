@@ -8,6 +8,7 @@ import { reservationRouter } from './routes/reservationRoute.js';
 import { loginRouter } from './routes/loginRoute.js'; // Import the login route
 import { signupRouter } from './routes/signupRoute.js'; // Import the signup route
 import paymentRouter from './routes/paymentRoutes.js'; // Import the default export
+import passwordResetRouter from './routes/passwordResetRoute.js'; // Import the password reset route
 
 const app = express();
 dotenv.config({ path: "./config/config.env" });
@@ -29,6 +30,7 @@ app.use("/api/v1/reservation", reservationRouter);
 app.use("/api/v1/login", loginRouter); // Use the login route
 app.use("/api/v1/signup", signupRouter); // Use the signup route
 app.use("/api", paymentRouter); // Use the payment route
+app.use("/api/v1/reset-password", passwordResetRouter); // Use the password reset route
 
 // Connect to MongoDB
 dbConnection();

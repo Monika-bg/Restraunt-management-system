@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./components/Login";
 import MenuPage from "./components/MenuPage";
 import DisplayMenu from "./components/DisplayMenu";
+import  Forgotpassword from "./components/Forgotpassword";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/view-menu" element={<DisplayMenu />} />
+        <Route path="/Forgot-password" element={<Forgotpassword />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
