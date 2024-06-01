@@ -1,5 +1,4 @@
-// signupController.js
-import { User } from "../models/Usermodel.js";
+import { User } from "../models/Usermodel.js"; // Correct import path
 
 export const signupUser = async (req, res) => {
   try {
