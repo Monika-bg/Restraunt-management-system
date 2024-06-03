@@ -5,7 +5,7 @@ export const dbConnection = async () => {
     await mongoose.connect(process.env.MONGO_URI, {
       dbName: "rms",
     });
-    console.log("Connected to database!");
+    console.log("Connected to daAtabase!");
   } catch (err) {
     console.log(`Some error occurred while connecting to database: ${err}`);
   }
